@@ -49,9 +49,6 @@ export function UploadDocumentsForm() {
       const response = await fetch(url, {
         method: 'POST',
         body: formData,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
       });
 
       if (response.status === 200) {
