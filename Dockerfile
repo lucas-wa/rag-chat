@@ -22,9 +22,13 @@ RUN apt-get install -y curl
 
 RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash - && apt-get install -y nodejs
 
-RUN npm i -g yarn
+RUN cd web && npm install 
 
-RUN cd web && yarn install
+RUN cd web && npm run build
+
+WORKDIR /code/server
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "3000"]
 
 # WORKDIR /code/web
 
@@ -35,7 +39,6 @@ RUN cd web && yarn install
 
 # WORKDIR /code/server
 
-# CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "-p", "3000 && "]
 
 # CMD ["ngrok", "http", "8080"]
 

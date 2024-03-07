@@ -47,7 +47,7 @@ llm = HuggingFaceLLM(
     model_name=selected_model,
     device_map="auto",
     # change these settings below depending on your GPU
-    # model_kwargs={"torch_dtype": torch.float16, "load_in_8bit": True},
+    model_kwargs={"torch_dtype": torch.float16, "load_in_8bit": True},
 )
 
 
